@@ -1,10 +1,24 @@
+# frozen_string_literal: true
+
 require "rubygems"
 require "bundler"
+
 Bundler.setup
 
-class CustomerInviter
-end
+require 'customer_inviter/models/user'
+require 'customer_inviter/loader'
+require 'customer_inviter/finder'
 
-Dir[File.expand_path(File.dirname(__FILE__) + "/customer_inviter/*.rb")].each do |file|
-  require file
+module CustomerInviter
+  module ClassMethods
+    def call(input)
+      users = Loader.call(input)
+
+      Finder
+        .by_distance(users: users.sort, range: 100)
+        .map(&:to_s)
+    end
+  end
+
+  extend ClassMethods
 end
