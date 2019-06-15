@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'spec_helper'
+
 module CustomerInviter
   RSpec.describe User do
     let(:instance) do
