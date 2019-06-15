@@ -3,3 +3,4 @@ gems/*
 !gems/cache
 !gems/bundler
 .rspec
+coverage

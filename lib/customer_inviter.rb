@@ -1,10 +1,25 @@
-require "rubygems"
-require "bundler"
+# frozen_string_literal: true
+
+require 'rubygems'
+require 'bundler'
+
 Bundler.setup
 
-class CustomerInviter
-end
+require 'customer_inviter/models/user'
+require 'customer_inviter/loader'
+require 'customer_inviter/finder'
 
-Dir[File.expand_path(File.dirname(__FILE__) + "/customer_inviter/*.rb")].each do |file|
-  require file
+module CustomerInviter
+  module ClassMethods
+    # This method smells of :reek:UtilityFunction
+    def call(input, loader: Loader, finder: Finder)
+      users = loader.call(input)
+
+      finder
+        .by_distance(users: users.sort, range: 100)
+        .map(&:to_s)
+    end
+  end
+
+  extend ClassMethods
 end
