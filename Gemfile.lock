@@ -44,7 +44,7 @@ GEM
       method_source (~> 0.9.0)
     psych (3.1.0)
     rainbow (3.0.0)
-    rake (12.3.2)
+    rake (12.3.3)
     reek (5.4.0)
       codeclimate-engine-rb (~> 0.4.0)
       kwalify (~> 0.7.0)
@@ -94,7 +94,7 @@ DEPENDENCIES
   activesupport (~> 5.2)
   awesome_distance_calculator!
   pry (~> 0.12)
-  rake (~> 12.0)
+  rake (~> 12.3)
   reek (~> 5.4)
   rspec (~> 3.8)
   rubocop (~> 0.71)
