@@ -2,7 +2,7 @@
 
 source 'http://rubygems.org'
 
-gem 'activesupport', '~> 5.2'
+gem 'activesupport', '~> 6.1'
 gem 'awesome_distance_calculator', github: 'tiarly/awesome_distance_calculator'
 gem 'pry', '~> 0.12'
 gem 'rake', '~> 12.0'
